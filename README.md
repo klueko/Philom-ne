@@ -5,7 +5,6 @@ Ce projet crée un chatbot interactif qui raconte des histoires et engage les ut
 ## Technologies utilisées
 
 - **Backend (Python)**
-  - [RASA](https://rasa.com/)
   - [Flask](https://flask.palletsprojects.com/)
   - [SQLite](https://www.sqlite.org/)
 
@@ -18,7 +17,8 @@ Ce projet crée un chatbot interactif qui raconte des histoires et engage les ut
 
 - Python 3.x
 - Node.js et npm
-- Une base de données SQLite ou PostgreSQL
+- Une base de données vectorielle.
+<!-- SGBDR à déterminer -->
 
 ### Backend (Python/RASA)
 
@@ -40,23 +40,8 @@ Ce projet crée un chatbot interactif qui raconte des histoires et engage les ut
     pip install -r requirements.txt
     ```
 
-4. Initialisez RASA :
-    ```bash
-    rasa init
-    ```
-
 <!-- 5. Configurez la base de données (SQLite/PostgreSQL) : -->
 <!-- à faire -->
-
-6. Entraînez le modèle RASA :
-    ```bash
-    rasa train
-    ```
-
-7. Démarrez le serveur backend :
-    ```bash
-    rasa run --enable-api
-    ```
 
 ### Frontend (JavaScript)
 
