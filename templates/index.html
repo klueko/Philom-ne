@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div>
+    <div class="chatbox">
+        <div class="chat-container">
+            <div class="window_header">
+                <div class="window_image">
+                    <img src="{{ url_for('static', filename='') }}" />
+                </div>
+                <div class="window_content">
+                    <h4 class="window_heading">Philomène</h4>
+                    <p class="window_description">Je suis un bot bordelais, que veux-tu savoir ? </p>
+                </div>
+            </div>
+            <div class="window_messages">
+                <div style="background-color: #b73232;"></div>
+            </div>
+            <div class="window_footer">
+                <input type="text" placeholder="Des concerts de jazz en mars ?">
+                <button class="submit_space submit_button">Envoyer</button>
+            </div>
+        </div>
+        <div class="open_chat">
+            <button>
+                <img src="{{ url_for('static', filename='') }}" />
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
