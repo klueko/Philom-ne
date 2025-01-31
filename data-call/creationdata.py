@@ -12,7 +12,7 @@ else:
     exit()
 
 columns_to_drop = [
-    "slug", "description_fr", "originagenda_title", "updatedat", "firstdate_begin",
+    "slug", "longdescription_fr", "originagenda_title", "updatedat", "firstdate_begin",
     "firstdate_end", "lastdate_begin", "lastdate_end", "location_coordinates",
     "location_insee", "location_tags", "originagenda_uid", "contributor_email",
     "contributor_contactnumber", "contributor_contactname",
