@@ -5,7 +5,7 @@ url = "https://datahub.bordeaux-metropole.fr/api/explore/v2.1/catalog/datasets/m
 all_data = []
 offset = 0
 limit = 100
-max_records = 10000
+max_records = 1500
 
 while True:
     if len(all_data) >= max_records:
