@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import json
 import pandas as pd
-from etape2 import load_faiss, search_events, query_ollama
+from etape2_2 import load_faiss, search_events, query_ollama
 
 app = Flask(__name__)
 
@@ -21,6 +21,11 @@ def predict():
     user_message = request.json.get('message')
     if not user_message:
         return jsonify({"answer": "Je n'ai pas compris votre question."})
+
+    # Détecter les messages de salutation
+    greetings = ["bonjour", "salut", "coucou"]
+    if user_message.lower() in greetings:
+        return jsonify({"answer": "Bonjour ! Comment puis-je vous aider aujourd'hui ?"})
 
     # Utiliser les fonctions de etape2.py pour obtenir les résultats
     search_results = search_events(user_message, retriever, df)

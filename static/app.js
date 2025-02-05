@@ -44,6 +44,8 @@ class Chatbox {
         this.addMessage('User', messageText);
         textField.value = '';
 
+        this.updateChatText(chatBox);
+
         this.sendMessageToBot(messageText)
             .then(response => {
                 this.addMessage('Philomène', response.answer);
@@ -51,6 +53,7 @@ class Chatbox {
             })
             .catch(error => {
                 console.error('Error:', error);
+                this.addMessage('Philomène', "Une erreur s'est produite. Veuillez réessayer.");
                 this.updateChatText(chatBox);
             });
     }
