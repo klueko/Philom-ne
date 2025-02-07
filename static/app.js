@@ -33,6 +33,10 @@ class Chatbox {
     toggleState(chatBox) {
         this.state = !this.state;
         chatBox.classList.toggle('chatbox--active', this.state);
+        if (this.state && this.messages.length === 0) {
+            this.addMessage('Philomène', "Salut ! Je suis Philomène, ton guide des sorties culturelles à Bordeaux. Que cherches-tu ?");
+            this.updateChatText(chatBox);
+        }
     }
 
     onSendButton(chatBox) {
@@ -44,6 +48,8 @@ class Chatbox {
         this.addMessage('User', messageText);
         textField.value = '';
 
+        this.updateChatText(chatBox);
+
         this.sendMessageToBot(messageText)
             .then(response => {
                 this.addMessage('Philomène', response.answer);
@@ -51,6 +57,7 @@ class Chatbox {
             })
             .catch(error => {
                 console.error('Error:', error);
+                this.addMessage('Philomène', "Une erreur s'est produite. Veuillez réessayer.");
                 this.updateChatText(chatBox);
             });
     }
@@ -60,7 +67,7 @@ class Chatbox {
     }
 
     sendMessageToBot(messageText) {
-        return fetch('http://127.0.0.1:5000/predict', {
+        return fetch('/chat', {
             method: 'POST',
             body: JSON.stringify({ message: messageText }),
             mode: 'cors',
@@ -71,9 +78,9 @@ class Chatbox {
         .then(response => response.json());
     }
 
-    updateChatText(chatBox) {
+    updateChatText(_chatBox) {
         const messagesHtml = this.messages.slice().reverse().map(({ name, message }) => {
-            const messageClass = name === "HistérIA" ? "messages_content--visitor" : "messages_content--operator";
+            const messageClass = name === "Philomène" ? "messages_content--visitor" : "messages_content--operator";
             return `<div class="messages_content ${messageClass}">${message}</div>`;
         }).join('');
 
