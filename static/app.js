@@ -74,7 +74,7 @@ class Chatbox {
         .then(response => response.json());
     }
 
-    updateChatText(_chatbox) {
+    updateChatText(chatbox) {
         const messagesHtml = this.messages.slice().reverse().map(({ name, message }) => {
             const messageClass = name === "Philomène" ? "messages_content--visitor" : "messages_content--operator";
             return `<div class="messages_content ${messageClass}">${message}</div>`;
