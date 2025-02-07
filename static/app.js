@@ -67,7 +67,7 @@ class Chatbox {
     }
 
     sendMessageToBot(messageText) {
-        return fetch('/chat', {
+        return fetch('/predict', {
             method: 'POST',
             body: JSON.stringify({ message: messageText }),
             mode: 'cors',
@@ -78,7 +78,7 @@ class Chatbox {
         .then(response => response.json());
     }
 
-    updateChatText(_chatBox) {
+    updateChatText(chatbox) {
         const messagesHtml = this.messages.slice().reverse().map(({ name, message }) => {
             const messageClass = name === "Philomène" ? "messages_content--visitor" : "messages_content--operator";
             return `<div class="messages_content ${messageClass}">${message}</div>`;
