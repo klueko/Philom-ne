@@ -10,8 +10,8 @@ import time  # Pour gérer les retries
 
 # 📌 Configuration
 URL = "https://datahub.bordeaux-metropole.fr/api/explore/v2.1/catalog/datasets/met_agenda/records"
-DATA_FILE = "reponse.json"
-RESPONSE_CLEAN_FILE = "reponses_nettoye.json"
+DATA_FILE = "response.json"
+RESPONSE_CLEAN_FILE = "response_cleaned.json"
 FAISS_INDEX_PATH = "faiss_index"
 
 def fetch_data():
@@ -23,9 +23,9 @@ def fetch_data():
     """
     all_data = []
     offset = 0
-    limit = 100         # Nombre de résultats par requête (limite imposée par l'API)
-    max_records = 10000 # Nombre total de résultats à récupérer
-    max_retries = 5     # Nombre maximum de tentatives en cas d'échec
+    limit = 100
+    max_records = 10000
+    max_retries = 5
 
     while len(all_data) < max_records:
         params = {'limit': limit, 'offset': offset}
@@ -40,7 +40,7 @@ def fetch_data():
                         break
                     all_data.extend(data)
                     offset += limit
-                    break  # Succès : sortir de la boucle de retry
+                    break
                 else:
                     print(f"⚠️ Erreur HTTP {response.status_code}, tentative {retries + 1}/{max_retries}")
                     retries += 1
@@ -86,7 +86,6 @@ def clean_and_filter_data():
     available_columns = [col for col in desired_columns if col in df.columns]
     df = df[available_columns].dropna(subset=["firstdate_begin"])
 
-    # Conversion des dates en datetime
     df['firstdate_begin'] = pd.to_datetime(df['firstdate_begin'], errors='coerce')
 
     # Filtrer les événements postérieurs au 1er janvier 2025

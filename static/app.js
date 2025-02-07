@@ -57,7 +57,7 @@ class Chatbox {
             })
             .catch(error => {
                 console.error('Error:', error);
-                this.addMessage('Philomène', "Une erreur s'est produite. Veuillez réessayer.");
+                this.addMessage('Philomène', "Je n'ai pas pu te trouver cette information !");
                 this.updateChatText(chatBox);
             });
     }

@@ -1,6 +1,6 @@
-# Chatbot d'Histoire
+# Chatbot de recommandations de sorties culturelles à Bordeaux
 
-Ce projet crée un chatbot interactif qui recommende des sorties culturels à Bordeaux. Le chatbot est construit avec **Flask** pour la gestion du backend, une base de données SQLite pour stocker certaines données, et une interface utilisateur en **JavaScript**.
+Ce projet crée un chatbot interactif qui recommande des sorties culturels à Bordeaux. Le chatbot est construit avec **Flask** pour la gestion du backend, une base de données SQLite pour stocker certaines données, et une interface utilisateur en **JavaScript**.
 
 ## Technologies utilisées
 
@@ -22,7 +22,7 @@ Ce projet crée un chatbot interactif qui recommende des sorties culturels à Bo
 
 ### Prérequis
 
-- Python 3.x
+- Python 3.12
 - Node.js et npm
 - Une base de données SQLite
 - Les modèles NLP comme **MiniLM** pour l'encodage de texte et l'indexation dans **FAISS**

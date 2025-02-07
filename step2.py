@@ -11,8 +11,8 @@ from langchain.schema import Document
 
 # ===================== Configuration =====================
 # Pour le chatbot, on utilise le fichier JSON nettoyé
-DATA_FILE = "reponses_nettoye.json"     # Fichier JSON nettoyé
-FAISS_INDEX_PATH = "faiss_index"         # Répertoire pour stocker l'index FAISS
+DATA_FILE = "response_cleaned.json"
+FAISS_INDEX_PATH = "faiss_index"
 
 # ===================== PARTIE 1 : Chargement des données =====================
 def load_data_as_dataframe():
