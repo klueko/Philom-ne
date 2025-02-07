@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import json
 import pandas as pd
-from etape2_2 import load_faiss, search_events, query_ollama
+from step2 import load_faiss, search_events, query_ollama
 from database import create_temp_db, add_message, get_messages
 
 app = Flask(__name__)
@@ -31,7 +31,7 @@ def predict():
     else:
         search_results = search_events(user_message, retriever, df)
         if search_results and "❌" not in search_results[0]:
-            prompt = "Voici les événements correspondant à votre recherche :\n\n"
+            prompt = "Voici les événements correspondant à votre question :\n\n"
             for event in search_results:
                 prompt += f"- {event}\n"
             prompt += "\nPouvez-vous résumer ces événements et donner des informations utiles ?"

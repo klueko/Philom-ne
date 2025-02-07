@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylebox.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Bordeaux Métropole</title>
+</head>
+
+<body>
+<div>
+    <div class="chatbox">
+        <div class="chat-container">
+            <div class="window_header">
+                <div class="window_image">
+                    <img src="{{ url_for('static', filename='images/bot.png') }}" />
+                </div>
+                <div class="window_content">
+                    <h4 class="window_heading">Philomène</h4>
+                    <p class="window_description">Je suis un bot bordelais.</p>
+                </div>
+            </div>
+            <div class="window_messages">
+                <div style="background-color: #d9d9d9;"></div>
+            </div>
+            <div class="window_footer">
+                <input type="text" placeholder="Un concert de jazz en mars ?">
+                <button class="submit_space submit_button"><img src="{{ url_for('static', filename='images/send-2.png') }}" /></button>
+            </div>
+        </div>
+        <div class="open_chat">
+            <button>
+                <img src="{{ url_for('static', filename='images/bot.png') }}" />
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>

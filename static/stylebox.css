@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Blogger Sans';
+    src: url('font/fonts/blogger sans.ttf') format('truetype');
+    font-weight: normal;
+    font-size: 100%;
+    background: #F1F1F1;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Blogger Sans', sans-serif;
+}
+
+*, html {
+    --primary: #FFD500;
+    --background: #FFD500;
+}
+
+.chatbox {
+    bottom: 30px;
+    right: 30px;
+    position: fixed;
+    z-index: 1000;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    background: #eee;
+    width: 300px;
+    height: 350px;
+    z-index: -1000;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+.chatbox--active {
+    transform: translateY(-40px);
+    z-index: 123456;
+    opacity: 1;
+
+}
+
+.open_chat {
+    font-family: 'Blogger Sans', sans-serif;
+    text-align: right;
+}
+
+.window_header {
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.window_content {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.window_messages {
+    margin-top: auto;
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column-reverse;
+}
+
+.messages_content {
+    background: orange;
+    max-width: 60.6%;
+    width: fit-content;
+}
+
+.messages_content--operator {
+    margin-left: auto;
+}
+
+.messages_content--visitor {
+    margin-right: auto;
+}
+
+.window_footer {
+    position: sticky;
+    bottom: 0;
+}
+
+.window_footer img {
+    position: sticky;
+    bottom: 0;
+    width: 37px;
+    height: 36px;
+}
+
+.chat-container {
+    background: #f9f9f9;
+    height: 450px;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.window_header {
+    background: #FFD500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.window_image img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.window_heading {
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+}
+
+.window_description {
+    font-size: .9rem;
+    color: rgb(0, 0, 0);
+}
+
+.window_messages {
+    padding: 0 20px;
+}
+
+.messages_content {
+    margin-top: 10px;
+    background: #E0E0E0;
+    padding: 8px 12px;
+    max-width: 70%;
+}
+
+.messages_content--visitor,
+.messages_content--typing {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.messages_content--operator {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: var(--primary);
+    color: rgb(0, 0, 0);
+}
+
+.chat-container {
+    background: #f5f4f4;
+    height: 450px;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px; /* Ajouté pour arrondir les coins inférieurs */
+    border-bottom-right-radius: 20px; /* Ajouté pour arrondir les coins inférieurs */
+    overflow: hidden; /* Assurez-vous que le contenu ne dépasse pas les coins arrondis */
+}
+
+.window_footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Blogger Sans', sans-serif;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background: #ffffff;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 20px;
+}
+
+.window_footer input {
+    width: 80%;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 30px;
+    text-align: left;
+    font-family: 'Blogger Sans', sans-serif;
+    background: #E0E0E0;
+}
+
+.submit_button {
+    padding: 6px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Blogger Sans', sans-serif;
+}
+
+.submit_space {
+    color: white;
+}
+
+.open_chat button,
+.open_chat button:focus,
+.open_chat button:visited {
+    padding: 10px;
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+
+.open_chat button img {
+    width: 90%;
+    height: 80%;
+    object-fit: contain;
+}

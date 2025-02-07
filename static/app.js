@@ -33,6 +33,10 @@ class Chatbox {
     toggleState(chatBox) {
         this.state = !this.state;
         chatBox.classList.toggle('chatbox--active', this.state);
+        if (this.state && this.messages.length === 0) {
+            this.addMessage('Philomène', "Salut ! Je suis Philomène, ton guide des sorties culturelles à Bordeaux. Que cherches-tu ?");
+            this.updateChatText(chatBox);
+        }
     }
 
     onSendButton(chatBox) {
@@ -53,7 +57,7 @@ class Chatbox {
             })
             .catch(error => {
                 console.error('Error:', error);
-                this.addMessage('Philomène', "Une erreur s'est produite. Veuillez réessayer.");
+                this.addMessage('Philomène', "Je n'ai pas pu te trouver cette information !");
                 this.updateChatText(chatBox);
             });
     }
